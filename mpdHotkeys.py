@@ -40,8 +40,8 @@ def main():
             '<alt>+<shift>+2': on_activate_vol_up,
             '<alt>+<shift>+q': on_activate_prev,
             '<alt>+<shift>+w': on_activate_next,
-            '<shift>+<caps_lock>': on_activate_shift_caps,
-            '<esc>': on_activate_exit}) as idk:
+            '<shift>+<caps_lock>': on_activate_shift_caps}) as idk:
+            #'<esc>': on_activate_exit}) as idk:
         try:
             idk.join()
         except MyException as e:
