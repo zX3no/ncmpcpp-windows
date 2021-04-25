@@ -35,7 +35,7 @@
 
     1. In the windows 10 sound settings. Under `Output - Choose your output device`. Copy the text circled in red to `device`.
    
-        ![](https://github.com/zX3no/zX3no/blob/main/Writing/Images/device.png?raw=true)
+        ![](https://github.com/zX3no/ncmpcppOnWindows/blob/main/Images/device.png?raw=true)
 
     2. Press Win+R. Type dxdiag. Click the **sound** tab and copy the device name into `device`.
 6. Open cmd or PowerShell there and run `cd C:\mpd`.
