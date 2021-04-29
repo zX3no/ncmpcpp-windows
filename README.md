@@ -1,10 +1,10 @@
 # Ncmpcpp on Windows
 
 ## Table of contents
-* ### [MPD](#mpd)
-* ### [ncmpcpp](#ncmpcpp)
+1. [MPD](#mpd)
+2. [ncmpcpp](#ncmpcpp)
 
-## <a name="mpd"> Setting up MPD </a>
+## Setting up MPD <a name="mpd"></a>
 1. Download the latest version of `mpd.exe` from https://www.musicpd.org/download/win32/.
 2. Create a folder called `mpd` and add `mpd.exe` to it. I used `C:/mpd`, replace all occurrences with your directory location.
 3. Create a folder inside `mpd` called `playlists`.
@@ -59,7 +59,7 @@
     |
     └───playlists
     ```
-## <a name="ncmpcpp">Setting up ncmpcpp </a>
+## Setting up ncmpcpp <a name="ncmpcpp"></a>
 
 1. You cannot run ncmpcpp natively on windows so you'll need to use Windows Subsystem for Linux. [You can install it here.](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 2. `sudo apt install ncmpcpp` or `sudo pacman -S ncmpcpp --noconfirm`
