@@ -5,8 +5,11 @@
 2. [ncmpcpp](#ncmpcpp)
 
 ## Setting up MPD <a name="mpd"></a>
-1. Download the latest version of `mpd.exe` from https://www.musicpd.org/download/win32/.
-2. Create a folder called `mpd` and add `mpd.exe` to it. I used `C:/mpd`, replace all occurrences with your directory location.
+1. ~~Download the latest version of `mpd.exe` from https://www.musicpd.org/download/win32/.~~
+
+    Use [Chocolatey](https://chocolatey.org/install) to install: `choco install mpd` 
+
+2. Create a folder called `mpd` ~~and add `mpd.exe` to it.~~ I used `C:/mpd` as my directory, replace all occurrences with your directory location.
 3. Create a folder inside `mpd` called `playlists`.
 4. Create a file called `mpd.conf` and open it.
 5. Copy the contents inside
@@ -59,6 +62,13 @@
     |
     └───playlists
     ```
+10. To automatically run mpd at boot, create a service:
+    ``` 
+    sc create mpd binpath="mpd.exe c:\mpd\mpd.conf" 
+    sc config mpd start=auto
+    ```
+    If you didn't use Chocolatey, replace `mpd.exe` with `c:\mpd\mpd.exe`
+
 ## Setting up ncmpcpp <a name="ncmpcpp"></a>
 
 1. You cannot run ncmpcpp natively on windows so you'll need to use Windows Subsystem for Linux. [You can install it here.](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
