@@ -3,16 +3,14 @@
 ## Table of contents
 1. [MPD](#mpd)
 2. [ncmpcpp](#ncmpcpp)
-
+3. [Global hotkeys](#hotkeys)
 ## Setting up MPD <a name="mpd"></a>
-1. ~~Download the latest version of `mpd.exe` from https://www.musicpd.org/download/win32/.~~
-
-    Use [Chocolatey](https://chocolatey.org/install) to install: `choco install mpd` 
-
-2. Create a folder called `mpd` ~~and add `mpd.exe` to it.~~ I used `C:/mpd` as my directory, replace all occurrences with your directory location.
-3. Create a folder inside `mpd` called `playlists`.
-4. Create a file called `mpd.conf` and open it.
-5. Copy the contents inside
+1. Install [Chocolatey:](https://chocolatey.org/install)
+2. Open a terminal and run: `choco install mpd`
+3. Create a folder called `mpd`. I used `C:/mpd` as my directory. Remember to replace all occurrences of my directory with your own.
+4. Create a folder inside `mpd` called `playlists`.
+5. Create a file called `mpd.conf` and open it.
+6. Copy the contents inside
     ```
     bind_to_address "your_ip_adress"
     port "6600"
@@ -44,40 +42,38 @@
         ![](https://github.com/zX3no/ncmpcppOnWindows/blob/main/Images/device.png?raw=true)
 
     2. Press Win+R. Type dxdiag. Click the **sound** tab and copy the device name into `device`.
-6. Open cmd or PowerShell there and run `cd C:\mpd`.
-7. Then run MPD with: 
-   
-    PS: `./mpd mpd.conf`
-
-    CMD: `mpd mpd.conf`
-8. You're now running a MPD server.
-9.  Your folder structure should look like:
+7. In terminal run `cd C:\mpd`.
+8. Then run MPD with: `mpd mpd.conf`
+9. MPD is now running. You'll get a couple of errors; ignore these.
+10. Your folder structure should look like:
     ```
     mpd
     |   mpd.conf
     │   mpd.db
-    |   mpd.exe
     |   mpd.log
     |   mpdstate
     |
     └───playlists
     ```
-10. To automatically run mpd at boot, create a service:
+11. To automatically run mpd at boot, create a service:
     ``` 
     sc create mpd binpath="mpd.exe c:\mpd\mpd.conf" 
-    sc config mpd start=auto
+    sc config mpd start=delayed-auto
     ```
-    If you didn't use Chocolatey, replace `mpd.exe` with `c:\mpd\mpd.exe`
 
 ## Setting up ncmpcpp <a name="ncmpcpp"></a>
 
 1. You cannot run ncmpcpp natively on windows so you'll need to use Windows Subsystem for Linux. [You can install it here.](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-2. `sudo apt install ncmpcpp` or `sudo pacman -S ncmpcpp --noconfirm`
+
+    I used Ubuntu for this example. 
+2. `sudo apt install ncmpcpp`
 3. `mkdir -p ~/.ncmcpp/lyrics`
 4. `nano ~/.ncmpcpp/config`
 5. Paste the following config. Make sure to change **mpd_host** and **mpd_music_dir**.
+
+    On linux, the **C:/** drive can be accessed with: **/mnt/c/**
    
- ```   
+ ```
 # https://github.com/ncmpcpp/ncmpcpp/blob/master/doc/config
 # http://manpages.ubuntu.com/manpages/trusty/man1/ncmpcpp.1.html
 
@@ -87,7 +83,7 @@ mpd_port = 6600
 mpd_connection_timeout = 5
 
 ### Directories ###
-mpd_music_dir = "/mnt/c/replace_with_my_music_director"  
+mpd_music_dir = "/mnt/c/replace/with/my/music/directory"  
 lyrics_directory  = ~/.ncmpcpp/lyrics
 ncmpcpp_directory  = ~/.ncmpcpp
 
@@ -168,4 +164,13 @@ Ncmpcpp should now be working.
 
 [If you would like to change keyboard shortcuts.](https://github.com/ncmpcpp/ncmpcpp/blob/master/doc/bindings)
 
-### *TODO // Clean up config // Tutorial on remapping keys // Making global shortcuts with python*
+## Global hotkeys <a name="hotkeys"></a>
+Requirements: `choco install python` and `pip install python-mpd2 pynput`
+
+If you want to pause, play, skip playback by using keyboard shortcuts you download my python script [here.](https://github.com/zX3no/ncmpcppOnWindows/blob/main/mpdHotkeys.py) And edit it to your preferred key bindings.
+
+For information on what keys are avaliable etc. Refer to the [pynput docs.](https://pynput.readthedocs.io/en/latest/keyboard.html#global-hotkeys)
+
+If you want to run this script at startup, create a shorcut with the target as: `C:\Python39\pythonw.exe C:\mpd\mpdHotkeys.py`. Put the shortcut in `C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`.
+
+You can get to this location easily using run: `shell:startup`

@@ -1,4 +1,5 @@
 from mpd import MPDClient
+from contextlib import contextmanager
 import sys
 
 from pynput import keyboard
@@ -8,31 +9,49 @@ def main():
     class MyException(Exception): pass
 
     VOL_INC = 5
+    HOST, PORT = '192.168.0.100', 6600
+    client = MPDClient()  
+   
+    @contextmanager
+    def connection():
+        try:
+            client.connect(HOST, PORT)
+            yield
+        finally:
+            client.close()
+            client.disconnect()
 
-    client = MPDClient()               # create client object
-    # network timeout in seconds (floats allowed), default: None
-    client.timeout = 10
-    # timeout for fetching the result of the idle command is handled seperately, default: None
-    client.idletimeout = None
-    client.connect("192.168.0.100", 6600)  # connect to localhost:6600
+    def queue(command):
+        with connection():
+            try:
+                if command == 'vol_down':
+                    client.volume(-VOL_INC)
+                elif command == 'vol_up':
+                    client.volume(+VOL_INC)
+                else:
+                    result = getattr(client, command)()
+            except mpd.CommandError:
+                return 'invalid command'
+
+        return 'queued'
 
     def on_activate_shift_caps():
-         client.pause()  # play/pause
+         queue('pause')
 
     def on_activate_exit():
         raise MyException()
 
     def on_activate_vol_up():
-        client.volume(+VOL_INC)
+        queue('vol_up')
 
     def on_activate_vol_down():
-        client.volume(-VOL_INC)
+        queue('vol_down')
 
     def on_activate_prev():
-        client.previous();
+        queue('previous')
 
     def on_activate_next():
-        client.next();
+        queue('next')
 
     with keyboard.GlobalHotKeys({
             #todo read hotkeys from file
@@ -40,6 +59,7 @@ def main():
             '<alt>+<shift>+2': on_activate_vol_up,
             '<alt>+<shift>+q': on_activate_prev,
             '<alt>+<shift>+w': on_activate_next,
+            '<shift>+<caps_lock>': on_activate_shift_caps,
             '<shift>+<caps_lock>': on_activate_shift_caps}) as idk:
             #'<esc>': on_activate_exit}) as idk:
         try:
