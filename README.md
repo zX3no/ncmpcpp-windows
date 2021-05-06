@@ -76,83 +76,86 @@
 3. `mkdir -p ~/.ncmcpp/lyrics`
 4. `nano ~/.ncmpcpp/config`
 5. Paste the following config. Make sure to change **mpd_host** and **mpd_music_dir**.
+   
  ```   
-# Files
-mpd_music_dir = "/mnt/c/replace_with_my_music_director"  
+# https://github.com/ncmpcpp/ncmpcpp/blob/master/doc/config
+# http://manpages.ubuntu.com/manpages/trusty/man1/ncmpcpp.1.html
+
+### MPD ###
 mpd_host = "LOCAL_IP_HERE"
-mpd_port = "6600"
+mpd_port = 6600 
+mpd_connection_timeout = 5
+
+### Directories ###
+mpd_music_dir = "/mnt/c/replace_with_my_music_director"  
 lyrics_directory  = ~/.ncmpcpp/lyrics
 ncmpcpp_directory  = ~/.ncmpcpp
-mpd_connection_timeout = "5"  
-mpd_crossfade_time = "5"  
- 
-# Library
+
+### Library View ###
 media_library_primary_tag = album_artist
- 
-# Playlist
-playlist_disable_highlight_delay = "0"  
-playlist_display_mode = "columns"  
-playlist_show_remaining_time = "yes"
 
-browser_display_mode = "columns"  
-autocenter_mode = "yes"
-song_columns_list_format = "(10)[blue]{l} (30)[green]{a} (30)[magenta]{b} (50)[yellow]{t}"  
-colors_enabled = "yes"  
-main_window_color = "white"  
-main_window_highlight_color =  "blue"
-header_window_color = "cyan"  
-volume_color = "red"  
-progressbar_color = "cyan"  
-statusbar_color = "white"  
-active_column_color = "cyan"  
-active_window_border = "blue"
+### Playlist View ###
+user_interface = alternative
 
-alternative_header_first_line_format = "$0$aqqu$/a {$7%a - $9}{$5%t$9}|{$8%f$9} $0$atqq$/a$9"
-alternative_header_second_line_format = "{{$6%b$9}{ [$6%y$9]}}|{%D}"
-song_list_format = "{$3%n │ $9}{$7%a - $9}{$5%t$9}|{$8%f$9}$R{$6 │ %b$9}{$3 │ %l$9}"
-user_interface = "alternative"
-#user_interface =                    "classic"
-default_place_to_search_in = "database"
+## Header ##
 
+# Left
+statusbar_time_color = blue   
+player_state_color = cyan 
 
-## Navigation ##
-cyclic_scrolling = "yes"
-header_text_scrolling = "yes"
-jump_to_now_playing_song_at_start = "yes"
-lines_scrolled = "2"
+display_bitrate = yes
 
-## Other ##
-system_encoding = "utf-8"
-regular_expressions = "extended"
+# Middle
+header_window_color = cyan
+# Controls color of browse, media library etc..
+main_window_color = cyan
+alternative_ui_separator_color = cyan
 
-## Selected tracks ##
+alternative_header_first_line_format = $0$aqqu$/a {$7%A - $9}{$5%t$9}|{$8%f$9} $0$atqq$/a$9
+alternative_header_second_line_format = {$6%b$9}
+
+# Right
+state_flags_color = cyan
+volume_color = blue 
+
+## Body ##
+song_columns_list_format = (5)[blue]{l} (30)[green]{A} (30)[magenta]{b} (50)[yellow]{t}
+playlist_display_mode = columns
+playlist_disable_highlight_delay = 0 
 selected_item_prefix = "* "
-discard_colors_if_item_is_selected = "no"
+current_item_prefix = $(blue)$r
 
-## Seeking ##
-incremental_seeking = "yes"
-seek_time = "1"
+## Footer ##
+statusbar_color = red
 
-## Visibility ##
-header_visibility = "yes"
-statusbar_visibility = "yes"
-titles_visibility = "yes"
+### Navigation ###
+cyclic_scrolling = yes
+jump_to_now_playing_song_at_start = yes
 
-
-progressbar_look =  "=>-"
-progressbar_boldness = "yes"
-progressbar_elapsed_color = "white"
-
+### Progressbar ###
+progressbar_look = "=>-"
+progressbar_color = cyan
+progressbar_elapsed_color = white
 now_playing_prefix = "> "
-song_status_format = " $2%a $4⟫$3⟫ $8%t $4⟫$3⟫ $5%b "
-centered_cursor = "yes"
+seek_time = 1
 
-# Misc
-display_bitrate = "yes"
-# enable_window_title = "no"
-follow_now_playing_lyrics = "yes"
-ignore_leading_the = "yes"
+
+### Misc ###
+ignore_leading_the = yes
 empty_tag_marker = ""
+centered_cursor = yes
+regular_expressions = extended
+default_place_to_search_in = database
+mouse_support = yes
+colors_enabled = yes
+
+### Console Title ###
+# If enabled, ncmpcpp will override current window title with its own one.
+enable_window_title = yes
+
+### Editor ###
+external_editor = nano
+use_console_editor = yes
 ```
 6. Then type: `ncmpcpp`
 7. Press `u` to update the music directory
