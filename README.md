@@ -171,6 +171,8 @@ If you want to pause, play, skip playback by using keyboard shortcuts you downlo
 
 For information on what keys are avaliable etc. Refer to the [pynput docs.](https://pynput.readthedocs.io/en/latest/keyboard.html#global-hotkeys)
 
-If you want to run this script at startup, create a shorcut with the target as: `C:\Python39\pythonw.exe C:\mpd\mpdHotkeys.py`. Put the shortcut in `C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`.
+If you want to run this script at startup, create a shorcut with the target as: `C:\Python39\pythonw.exe C:\mpd\mpdHotkeys.py`. 
+
+Put the shortcut in `C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`.
 
 You can get to this location easily using run: `shell:startup`
