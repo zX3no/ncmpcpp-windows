@@ -56,6 +56,8 @@
     └───playlists
     ```
 11. To automatically run mpd at boot, create a service:
+    
+    `In admin cmd:`
     ``` 
     sc create mpd binpath="mpd.exe c:\mpd\mpd.conf" 
     sc config mpd start=delayed-auto
