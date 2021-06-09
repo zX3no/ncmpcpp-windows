@@ -178,3 +178,9 @@ If you want to run this script at startup, create a shorcut with the target as: 
 Put the shortcut in `C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`.
 
 You can get to this location easily using run: `shell:startup`
+
+TODO:
+
+Move mpd related things to boot script instead of service
+
+Clarify mpd setup that you can put files where ever you want and add an easier install option
