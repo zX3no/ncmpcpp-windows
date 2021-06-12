@@ -184,3 +184,5 @@ TODO:
 Move mpd related things to boot script instead of service
 
 Clarify mpd setup that you can put files where ever you want and add an easier install option
+
+See if ncmpcpp config file is required, might be able to delete a big section
