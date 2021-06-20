@@ -91,23 +91,10 @@ ncmpcpp should be working now; however it's quite ugly in it's default configura
 [If you would like to change keyboard shortcuts.](https://github.com/ncmpcpp/ncmpcpp/blob/master/doc/bindings)
 
 ## Global hotkeys <a name="hotkeys"></a>
-### Python:
 
-Requirements: `choco install python` and `pip install python-mpd2 pynput`
+https://github.com/zX3no/MPDHotkeys
 
-If you want to pause, play, skip playback by using keyboard shortcuts you download my python script [here.](https://github.com/zX3no/ncmpcppOnWindows/blob/main/mpdHotkeys.py) And edit it to your preferred key bindings.
-
-For information on what keys are avaliable etc. Refer to the [pynput docs.](https://pynput.readthedocs.io/en/latest/keyboard.html#global-hotkeys)
-
-If you want to run this script at startup, create a shorcut with the target as: `C:\Python39\pythonw.exe C:\mpd\mpdHotkeys.py`. 
-
-Put the shortcut in `C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`.
-
-You can get to this location easily using run: `shell:startup`
-
-### C++ (Unfinished):
-
-[Download the latest release](https://github.com/zX3no/MPDHotkeys/releases)
+Download the latest release and change the config to your liking.
 
 ### TODO:
 
