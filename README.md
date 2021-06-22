@@ -5,7 +5,7 @@
 2. [ncmpcpp](#ncmpcpp)
 3. [Global hotkeys](#hotkeys)
 ## Setting up MPD <a name="mpd"></a>
-1. Install [Chocolatey:](https://chocolatey.org/install)
+1. Install [Chocolatey](https://chocolatey.org/install)
 2. Open a terminal and run: `choco install mpd`
 3. Create a folder called `mpd`. I used `C:/mpd` as my directory. Remember to replace all occurrences of my directory with your own.
 4. Create a folder inside `mpd` called `playlists`.
