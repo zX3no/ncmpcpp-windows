@@ -55,12 +55,15 @@
     |
     └───playlists
     ```
-11. To automatically run mpd at boot, create a service:
-    
-    `In admin cmd:`
-    ``` 
-    sc create mpd binpath="mpd.exe c:\mpd\mpd.conf" 
-    sc config mpd start=delayed-auto
+11. To automatically run mpd at boot, create a .ps1 file with the contents:
+    ```
+    Start-Process -WindowStyle Hidden -FilePath "C:\mpd\mpd.exe" -ArgumentList "C:\mpd\mpd.conf"
+    ```
+
+    Place the file at:
+
+    ```
+    %appdata%/Microsoft/Windows/Start Menu/Programs/Start-up
     ```
 
 ## Setting up ncmpcpp <a name="ncmpcpp"></a>
@@ -96,6 +99,7 @@ https://github.com/zX3no/MPDHotkeys
 
 Download the latest release and change the config to your liking.
 
-### TODO:
-
-**Clarify mpd setup that you can put files where ever you want and add an easier install option**
+To run at boot add this to the PowerShell file we made before:
+```
+Start-Process -FilePath "C:\mpd\mpdhotkeys.exe"
+```
