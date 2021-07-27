@@ -55,15 +55,18 @@
     |
     └───playlists
     ```
-11. To automatically run mpd at boot, create a .ps1 file with the contents:
-    ```
-    Start-Process -WindowStyle Hidden -FilePath "C:\mpd\mpd.exe" -ArgumentList "C:\mpd\mpd.conf"
-    ```
 
-    Place the file at:
+
+11. To automatically run mpd at boot, first:
+
+    [Download the latest release.](https://github.com/SeidChr/RunHiddenConsole/releases/) This will allow us to run mpd without a window.
+
+    Then copy it to `C:\ProgramData\chocolatey\bin` and rename it to `mpdw.exe`
+
+    Then run this command:
 
     ```
-    %appdata%/Microsoft/Windows/Start Menu/Programs/Start-up
+    reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v mpd /t REG_SZ /d "C:\ProgramData\chocolatey\bin\mpdw.exe C:\mpd\mpd.conf"
     ```
 
 ## Setting up ncmpcpp <a name="ncmpcpp"></a>
@@ -99,7 +102,11 @@ https://github.com/zX3no/MPDHotkeys
 
 Download the latest release and change the config to your liking.
 
-To run at boot add this to the PowerShell file we made before:
+Run this command to launch at boot:
+
+
 ```
-Start-Process -FilePath "C:\mpd\mpdhotkeys.exe"
+reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v mpdhotkeys /t REG_SZ /d "C:\mpd\mpdhotkeys.exe"
 ```
+
+Make sure the file is here: `C:\mpd\mpdhotkeys.exe`
