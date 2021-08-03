@@ -1,9 +1,9 @@
 # Ncmpcpp on Windows
 
-## Table of contents
 1. [MPD](#mpd)
 2. [ncmpcpp](#ncmpcpp)
 3. [Global hotkeys](#hotkeys)
+
 ## Setting up MPD <a name="mpd"></a>
 1. Install [Chocolatey](https://chocolatey.org/install)
 2. Open a terminal and run: `choco install mpd`
