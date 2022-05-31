@@ -2,7 +2,6 @@
 
 1. [MPD](#mpd)
 2. [ncmpcpp](#ncmpcpp)
-3. [Global hotkeys](#hotkeys)
 
 ## Setting up MPD <a name="mpd"></a>
 1. Install [Chocolatey](https://chocolatey.org/install)
@@ -95,18 +94,3 @@ ncmpcpp should be working now; however it's quite ugly in it's default configura
 [If you want to change how the players looks or works.](https://github.com/ncmpcpp/ncmpcpp/blob/master/doc/config)
 
 [If you would like to change keyboard shortcuts.](https://github.com/ncmpcpp/ncmpcpp/blob/master/doc/bindings)
-
-## Global hotkeys <a name="hotkeys"></a>
-
-https://github.com/zX3no/MPDHotkeys
-
-Download the latest release and change the config to your liking.
-
-Run this command to launch at boot:
-
-
-```
-reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v mpdhotkeys /t REG_SZ /d "C:\mpd\mpdhotkeys.exe"
-```
-
-Make sure the file is here: `C:\mpd\mpdhotkeys.exe`
