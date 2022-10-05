@@ -87,7 +87,7 @@ media_library_primary_tag = album_artist
 7. Then type: `ncmpcpp`
 8. Press `u` to update the music directory
 
-ncmpcpp should be working now; however it's quite ugly in it's default configuration. You can grab mine [here.](https://raw.githubusercontent.com/zX3no/zX3no/main/Config/.ncmpcpp/config) 
+ncmpcpp should be working now; however it's quite ugly in it's default configuration. You can grab mine [here.](config) 
 
 [If you want to learn the default shortcuts.](https://pkgbuild.com/~jelle/ncmpcpp/)
 
