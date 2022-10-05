@@ -1,0 +1,78 @@
+# https://github.com/ncmpcpp/ncmpcpp/blob/master/doc/config
+# http://manpages.ubuntu.com/manpages/trusty/man1/ncmpcpp.1.html
+
+### MPD ###
+mpd_host = 192.168.0.100
+mpd_port = 6600 
+mpd_connection_timeout = 1 
+
+### Library View ###
+media_library_primary_tag = album_artist
+
+### Playlist View ###
+user_interface = alternative
+
+## Header ##
+
+# Left
+statusbar_time_color = blue   
+player_state_color = cyan 
+
+display_bitrate = yes
+
+# Middle
+header_window_color = cyan
+# Controls color of browse, media library etc..
+main_window_color = cyan
+alternative_ui_separator_color = cyan
+
+alternative_header_first_line_format = $7$aqqu$/a {$5%A - }{$5%t} $7$atqq$/a$9
+alternative_header_second_line_format = {$7%b}
+
+# Right
+state_flags_color = cyan
+volume_color = blue 
+
+## Body ##
+song_columns_list_format =  (8)[magenta]{n} (30)[blue]{t} (30)[yellow]{b} (30)[green]{A}
+current_item_prefix = $(magenta)$r
+playlist_display_mode = columns
+playlist_disable_highlight_delay = 0 
+selected_item_prefix = "* "
+
+## Footer ##
+statusbar_color = red
+
+### Navigation ###
+cyclic_scrolling = yes
+jump_to_now_playing_song_at_start = yes
+
+### Progressbar ###
+progressbar_look = "=>-"
+progressbar_color = cyan
+progressbar_elapsed_color = white
+now_playing_prefix = "> "
+seek_time = 1
+
+### Misc ###
+ignore_leading_the = yes
+empty_tag_marker = ""
+centered_cursor = yes
+regular_expressions = extended
+default_place_to_search_in = database
+mouse_support = yes
+colors_enabled = yes
+volume_change_step = 1
+
+### Console Title ###
+# If enabled, ncmpcpp will override current window title with its own one.
+enable_window_title = yes
+
+### Editor ###
+external_editor = nano
+use_console_editor = yes
+
+### Useless ###
+active_window_border = red
+window_border_color = red
+state_line_color = red
