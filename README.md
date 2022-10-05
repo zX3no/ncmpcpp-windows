@@ -38,20 +38,20 @@
 
     1. In the windows 10 sound settings. Under `Output - Choose your output device`. Copy the text circled in red to `device`.
    
-        ![](https://github.com/zX3no/ncmpcppOnWindows/blob/main/Images/device.png?raw=true)
+        ![](Images/device.png)
 
     2. Press Win+R. Type dxdiag. Click the **sound** tab and copy the device name into `device`.
 7. In terminal run `cd C:\mpd`.
 8. Then run MPD with: `mpd mpd.conf`
 9. MPD is now running. You'll get a couple of errors; ignore these.
-10. Your folder structure should look like:
+10. Your folder structure should look like this:
     ```
     mpd
-    |   mpd.conf
-    │   mpd.db
-    |   mpd.log
-    |   mpdstate
-    |
+    ├── mpd.conf
+    ├── mpd.db
+    ├── mpd.log
+    ├── mpdstate
+    │
     └───playlists
     ```
 
@@ -87,7 +87,7 @@ media_library_primary_tag = album_artist
 7. Then type: `ncmpcpp`
 8. Press `u` to update the music directory
 
-ncmpcpp should be working now; however it's quite ugly in it's default configuration. You can grab mine [here.](config) 
+Ncmpcpp should be working now; however it's quite ugly in it's default configuration. You can grab mine [here](config).
 
 [If you want to learn the default shortcuts.](https://pkgbuild.com/~jelle/ncmpcpp/)
 
