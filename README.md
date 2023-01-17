@@ -74,7 +74,7 @@
 
     I used Ubuntu for this example. 
 2. `sudo apt install ncmpcpp`
-3. `mkdir -p ~/.ncmcpp/lyrics`
+3. `mkdir -p ~/.ncmpcpp/lyrics`
 4. `nano ~/.ncmpcpp/config`
 5. Open CMD or PowerShell and type `ipconfig`. Note your IPv4 Address.
 6. Paste the following config. Make sure to change **mpd_host** to your IP. 
